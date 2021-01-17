@@ -1,7 +1,7 @@
 package one.digitalinnovation.personapi;
 
 import lombok.AllArgsConstructor;
-import one.digitalinnovation.personapi.dto.MessageResponseDTO;
+import one.digitalinnovation.personapi.dto.response.MessageResponseDTO;
 import one.digitalinnovation.personapi.dto.request.PersonDTO;
 import one.digitalinnovation.personapi.entity.Person;
 import one.digitalinnovation.personapi.exception.PersonNotFoundException;
@@ -22,7 +22,7 @@ public class PersonService {
     public MessageResponseDTO createPerson(PersonDTO personDTO){
         Person personToSave = personMapper.toModel(personDTO);
         Person savedPerson = personRepository.save(personToSave);
-        return createMessageResponse(savedPerson, "Created penson with ID ");
+        return createMessageResponse(savedPerson, "Created person with ID ");
     }
 
     public List<PersonDTO> listAll() {
